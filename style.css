@@ -1,0 +1,38 @@
+.Heading{
+    position: relative;
+    text-align: center;
+}
+.HeadTitle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -150%);
+}
+.Navigation{
+    background-color: darkgreen;
+    width: 100%;
+    float: left;
+    overflow: hidden;
+}
+h1{
+    color: darkgreen;
+}
+.Navigation a{
+    color: bisque;
+    padding: 14px 14px;
+    font-size: 30px;
+
+}
+.Content{
+
+}
+h4{
+    color: darkgreen;
+}
+p{
+    color: navy;
+}
+.Footer{
+    color: bisque;
+    background-color: darkgreen;
+}
