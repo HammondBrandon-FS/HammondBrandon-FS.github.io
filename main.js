@@ -5,13 +5,13 @@
 
 // Main screen with options to view/add/search contacts
 // Define array to hold contact objects
-let contacts = [];
+const contacts = [];
 displayMenu();
 
 // Display a Menu
 function displayMenu() {
-    let selection = Number(prompt(`Welcome to Client Tracker:\r\n1) Add a Contact\r\n2) View Contacts\r\n3) Search Contacts`));
-    while (isNaN(selection)) {
+    let selection = Number(prompt(`Welcome to Client Tracker:\r\n1) Add a Contact\r\n2) View Contacts\r\n3) Search Contacts\r\n4) Home Page`));
+    while (isNaN(selection) || selection != 1 && selection != 2 && selection != 3 && selection != 4) {
         selection = Number(prompt(`-Invalid Selection-\r\nPlease chose an option below:\r\n1) Add a Contact\r\n2) View Contacts\r\n3) Search Contacts`));
     }
 // Handle choices
@@ -25,6 +25,9 @@ function displayMenu() {
         case 3:
             searchContacts();
             break;
+        case 4:
+            // Go to home page
+            break;
     }
 }
 // Add a contact option
@@ -33,19 +36,30 @@ function addContact() {
     let number = prompt(`What is ${name}'s phone number?`);
     let email = prompt(`What is ${name}'s email?`);
     let status = prompt(`Buyer or Seller?`);
+    // Add them to the array as an object and go back to the menu.
     contacts.push({name, number, email, status});
     displayMenu();
 }
 // View Contacts option
 function viewContacts() {
-    if (contacts.count <= 0) {
-        return;
+    // if no contacts, return to menu
+    if (contacts.length <= 0) {
+        alert(`No contacts have been added.`);
+        displayMenu();
     }
-    for (let i = 0; i < contacts.count; i++) {
-        console.log(contacts[i].name);
+    else {
+        for (let i = 0; i < contacts.length; i++) {
+            console.log(contacts[i].name);
+        }
     }
 }
 // Search Contacts option
 function searchContacts() {
-
+    if (contacts.length <= 0) {
+        alert(`No contacts have been added.`);
+        displayMenu();
+    }
+    else {
+        let nameSearch = prompt(`What name would you like to search for?`);
+    }
 }
