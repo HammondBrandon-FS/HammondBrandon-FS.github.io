@@ -47,19 +47,31 @@ function viewContacts() {
         alert(`No contacts have been added.`);
         displayMenu();
     }
+    // Else, list out contacts in console
     else {
         for (let i = 0; i < contacts.length; i++) {
-            console.log(contacts[i].name);
+            console.log(contacts[i].name, contacts[i].number, contacts[i].email);
         }
     }
 }
 // Search Contacts option
 function searchContacts() {
+    // if no contacts, return to menu
     if (contacts.length <= 0) {
         alert(`No contacts have been added.`);
         displayMenu();
     }
+    // else prompt for contact name
     else {
         let nameSearch = prompt(`What name would you like to search for?`);
+        // Iterate through contacts
+        for (let i = 0; i < contacts.length; i++) {
+            // Validate that contact exists
+            while (contacts[i].name.toLowerCase() != nameSearch.toLowerCase()) {
+                nameSearch = prompt(`Contact does not exist.\r\nWhat name would you like to search for?`);
+            }
+            // Output contact info to console
+            console.log(contacts[i].name, contacts[i].number, contacts[i].email);
+        }
     }
 }
